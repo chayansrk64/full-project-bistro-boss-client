@@ -8,7 +8,7 @@ const Featured = () => {
             <div className="pt-5">
             <SectionTitle
             subHeading="Check it Out"
-            heading="From our menu"
+            heading="featured item"
             >
             </SectionTitle>
             </div>

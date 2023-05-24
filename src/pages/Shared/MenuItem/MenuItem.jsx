@@ -2,6 +2,7 @@
 const MenuItem = ({item}) => {
     console.log(item);
     const {image, name, price, recipe} = item;
+     
     return (
         <section>
             <img style={{width:"118px", borderRadius:"0 200px 200px 200px"}} src={image} alt="" />
