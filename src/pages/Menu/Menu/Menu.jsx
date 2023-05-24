@@ -11,12 +11,16 @@ import useMenu from "../../../hooks/useMenu";
 import MenuCategory from "../MenuCategory/MenuCategory";
  
 const Menu = () => {
+  
   const [menu] = useMenu();
+
   const dessert = menu.filter(item => item.category === 'dessert')
   const soup = menu.filter(item => item.category === 'soup')
   const salad = menu.filter(item => item.category === 'salad')
   const pizza = menu.filter(item => item.category === 'pizza')
   const offered = menu.filter(item => item.category === 'offered')
+
+
   return (
     <div>
       <Helmet>
@@ -29,42 +33,19 @@ const Menu = () => {
       {/* offered menu itmes */}
       <MenuCategory items={offered}></MenuCategory>
       {/* dessert menu items */}
-      <MenuCategory items={dessert} title="Dessert" img={dessertImg}> </MenuCategory>
+      <MenuCategory items={dessert} title="dessert" img={dessertImg}> </MenuCategory>
       
       {/* pizza menu items */}
-      <MenuCategory items={pizza} title="Pizza" img={pizzaImg}> </MenuCategory>
+      <MenuCategory items={pizza} title="pizza" img={pizzaImg}> </MenuCategory>
       {/* salad menu items */}
-      <MenuCategory items={salad} title="Salad" img={saladImg}> </MenuCategory>
+      <MenuCategory items={salad} title="salad" img={saladImg}> </MenuCategory>
       {/* soup menu items */}
-      <MenuCategory items={soup} title="Soup" img={soupImg}> </MenuCategory>
+      <MenuCategory items={soup} title="soup" img={soupImg}> </MenuCategory>
       
 
 
 
 
-
-
-
-
-
-
-
-
-
-      {/* <Cover 
-      img={coverImg}
-      title="our menu"
-      subTitle="Would You Like To Try a Dish?"
-      ></Cover>
-
-      <PopularMenu></PopularMenu>
-      <Cover 
-      img={coverImg}
-      title="our menu"
-      subTitle="Would You Like To Try a Dish?"
-      ></Cover>
-
-      <PopularMenu></PopularMenu> */}
       
     </div>
   );

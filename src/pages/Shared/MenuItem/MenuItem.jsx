@@ -1,6 +1,6 @@
  
 const MenuItem = ({item}) => {
-    console.log(item);
+    
     const {image, name, price, recipe} = item;
      
     return (
