@@ -6,8 +6,10 @@ import { useState } from 'react';
 import useMenu from "../../../hooks/useMenu";
 import OrderTab from "../OrderTab/OrderTab";
 import { useParams } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const Order = () => {
+   
     const categories = ['salad', 'pizza', 'soup', 'dessert', 'drinks'];
     const{category} = useParams();
     const initialIndex = categories.indexOf(category)
@@ -23,6 +25,10 @@ const Order = () => {
 
   return (
     <div>
+       <Helmet>
+      <title> Bistro Boss | Order </title>
+     </Helmet>
+
       <Cover img={foodCoverImg} title="our shop" subTitle="Would you like to try Dish?" ></Cover>
 
       <Tabs selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
