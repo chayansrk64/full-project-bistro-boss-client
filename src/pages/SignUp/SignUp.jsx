@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet-async";
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
+import SocialLogin from "../../components/SocialLogin/SocialLogin";
  
 const SignUp = () => {
     const {createUser, updateUserProfile} = useContext(AuthContext);
@@ -20,16 +21,32 @@ const SignUp = () => {
 
             updateUserProfile(data.name, data.photoURL)
             .then(()=> {
-                console.log('user profile updated');
-                reset();
-                Swal.fire({
-                    position: 'top-center',
-                    icon: 'success',
-                    title: 'User created successfully!',
-                    showConfirmButton: false,
-                    timer: 1500
-                  })
-                  navigate('/')
+              const userDetails = {name: data.name, email: data.email}
+                // console.log('user profile updated');
+                fetch('http://localhost:5000/users', {
+                  method: "POST",
+                  headers: {
+                    'content-type': 'application/json'
+                  },
+                  body: JSON.stringify(userDetails)
+                })
+                .then(res => res.json())
+                .then(data => {
+                  if(data.insertedId){
+                    reset();
+                    Swal.fire({
+                        position: 'top-center',
+                        icon: 'success',
+                        title: 'User created successfully!',
+                        showConfirmButton: false,
+                        timer: 1500
+                      })
+                      navigate('/')
+                  }
+                  
+                })
+
+               
             })
             .catch(error => console.log(error))
 
@@ -98,6 +115,9 @@ return (
         </div>
       </form>
       <p className="p-3"><small>Already have an Account? <Link to='/login' className="text-warning">Log In</Link> </small></p>
+      <div className="text-center mb-4">
+        <SocialLogin></SocialLogin>
+      </div>
     </div>
   </div>
 </div>
