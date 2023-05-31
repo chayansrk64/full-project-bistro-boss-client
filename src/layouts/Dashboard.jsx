@@ -1,6 +1,7 @@
 import { FaBars, FaBook, FaCalendar, FaCalendarCheck, FaComments, FaHome, FaMailBulk, FaShopify, FaShoppingCart, FaUsers, FaUtensils, FaWallet } from "react-icons/fa";
 import { NavLink, Outlet } from "react-router-dom";
 import useCart from "../hooks/useCart";
+import useAdmin from "../hooks/useAdmin";
 
  
 const Dashboard = () => {
@@ -8,7 +9,9 @@ const Dashboard = () => {
   const [cart] = useCart();
 
   //TODO: load data from the server to have dynamic admin based on data
-  const isAdmin = true;
+  // const isAdmin = true;
+
+  const [isAdmin] = useAdmin()
 
 
     return (
