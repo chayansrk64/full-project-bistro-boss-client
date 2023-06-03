@@ -18,11 +18,13 @@ const CheckoutForm = ({cart, price}) => {
 
 
     useEffect(()=> {
-      axiosSecure.post('/create-payment-intent', {price})
+      if(price > 0){
+        axiosSecure.post('/create-payment-intent', {price})
       .then(res => {
         console.log(res.data.clientSecret);
         setClientSecret(res.data.clientSecret);
       })
+      }
     }, [price, axiosSecure])
 
     const handleSubmit = async (event) => {
