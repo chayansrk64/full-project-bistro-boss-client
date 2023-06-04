@@ -23,7 +23,7 @@ const SignUp = () => {
             .then(()=> {
               const userDetails = {name: data.name, email: data.email}
                 // console.log('user profile updated');
-                fetch('http://localhost:5000/users', {
+                fetch('https://bistro-boss-server-taupe.vercel.app/users', {
                   method: "POST",
                   headers: {
                     'content-type': 'application/json'
