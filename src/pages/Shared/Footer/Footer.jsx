@@ -1,6 +1,14 @@
- 
+
 const Footer = () => {
     return (
+
+        /*
+        ============================
+        TODO: should be a real footer  
+        =============================
+        */ 
+
+
         <footer>
             
             <div className="footer p-10 bg-neutral text-neutral-content">

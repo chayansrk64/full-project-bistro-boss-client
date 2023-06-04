@@ -13,6 +13,7 @@ const NavBar = () => {
   const {user, logOut} = useContext(AuthContext);
   const [cart] = useCart();
   const [isAdmin] = useAdmin()
+  
 
   const handleLogOut = () => {
       logOut()
@@ -43,7 +44,7 @@ const NavBar = () => {
        
        {
          user ? <>
-         <span>{user?.displayName}</span>
+         <span> <img className="w-[45px] rounded-full mr-3" src={user?.photoURL} alt="" /> </span>
          <button onClick={handleLogOut} className="btn btn-gost">LogOut</button>
          </> : 
          <> <li> <Link to="/login">Login</Link> </li></>
@@ -53,7 +54,7 @@ const NavBar = () => {
 
     return (
         <>
-<div className="navbar fixed z-10 bg-opacity-30 text-white max-w-7xl bg-base-100">
+<div className="navbar fixed z-10 bg-opacity-30  text-white max-w-7xl bg-base-100">
   <div className="navbar-start">
     <div className="dropdown">
       <label tabIndex={0} className="btn btn-ghost lg:hidden">
