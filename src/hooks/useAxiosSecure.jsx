@@ -8,7 +8,8 @@ import { AuthContext } from '../providers/AuthProvider';
 
 
 const axiosSecure = axios.create({
-  baseURL: 'https://bistro-boss-server-taupe.vercel.app', 
+  // baseURL: 'https://bistro-boss-server-taupe.vercel.app', 
+  baseURL: 'http://localhost:5000/', 
 });
 
 
